@@ -1,0 +1,46 @@
+/*$baseFontFamily: Oxygen;
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
+@import 'bootstrap';
+
+body {
+	padding-top: 150px;
+}
+
+@import 'bootstrap-responsive';
+
+.footer {
+	margin-top: 50px;
+	color: gray;
+	a {
+		color: gray;
+	}
+}
+
+/* Required for jQuery Masonry */
+
+.box {
+	margin: 0 auto;
+	padding: 5px;
+	font-size: 11px;
+	line-height: 1.4em;
+	background-color: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 1px 1px 10px #444;
+	width: 300px;
+}
+
+.box img {
+	display: block;
+	width: 100%;
+	padding: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+}
+
+.description {
+	margin: 5px 0 5px;
+}
