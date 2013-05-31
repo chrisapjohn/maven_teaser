@@ -1,6 +1,14 @@
 MavenTeaser::Application.routes.draw do
 
-root :to => "pages#home"
+  root :to => "emails#home"
+
+  devise_for :users
+
+  resources :emails
+
+  resources :users
+
+
 
 
   # The priority is based upon order of creation:
