@@ -43,11 +43,9 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        flash[:notice] = "Success! We'll be in touch."
-        format.html { render action: "home" }
+        flash[:success] = "Success! We'll be in touch."
       else
-        format.html { render action: "new" }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
+        flash.now[:error] = "Please try again"
       end
     end
   end
