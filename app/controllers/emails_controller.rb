@@ -43,7 +43,7 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        flash[:success] = "Success! We'll be in touch."
+        format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
       else
         flash.now[:error] = "Please try again"
       end
