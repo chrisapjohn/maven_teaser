@@ -1,9 +1,11 @@
-<%= simple_form_for @email, :url => {:action => :create} do |f| %>
+<%= simple_form_for @email, :remote => true do |f| %>
 
-  <div class="field">
-    <%= f.email_field :email, :placeholder => "Enter e-mail address here" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Request invitation", class: "btn btn-success" %>
-  </div>
+	<div id="email_form">
+	  <div class="field">
+	    <%= f.email_field :email, :placeholder => "Enter e-mail address here" %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit "Request invitation", class: "btn btn-success" %>
+	  </div>
+	</div>
 <% end %>
