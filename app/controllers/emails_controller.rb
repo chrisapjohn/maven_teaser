@@ -1,6 +1,7 @@
 class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
+
   def index
     @emails = Email.all
 
@@ -42,10 +43,12 @@ class EmailsController < ApplicationController
     @email = Email.new(params[:email])
 
     respond_to do |format|
-      if @email.save
-        format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
-      else
-        flash.now[:error] = "Please try again"
+      format.js do        
+        if @email.save
+          format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
+        else
+          flash.now[:error] = "Please try again"
+        end
       end
     end
   end
