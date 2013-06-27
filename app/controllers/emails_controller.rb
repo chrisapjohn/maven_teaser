@@ -1,7 +1,8 @@
 class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
-
+  before_filter :authenticate_user!
+ 
   def index
     @emails = Email.all
 
@@ -43,11 +44,13 @@ class EmailsController < ApplicationController
     @email = Email.new(params[:email])
 
     respond_to do |format|
-      format.js do        
+      format.json do        
         if @email.save
-          format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
+          #format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
+          head :no_content
         else
-          flash.now[:error] = "Please try again"
+          #flash.now[:error] = "Please try again"
+          render json: @email.errors, status: :unprocessable_entity
         end
       end
     end
