@@ -11,8 +11,9 @@ $(document).ready(function(){
         data: valuesToSubmit,
         dataType: "JSON"
     }).success(function(json){
-        alert("Success! We'll be in touch.");
+        $('#success_message').show();
     });
     return false; 
 	});
 });
+

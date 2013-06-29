@@ -1,8 +1,34 @@
 class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
+
+  # POST /emails
+  # POST /emails.json
+
   before_filter :authenticate_user!
- 
+
+  def create
+    @email = Email.new(params[:email])
+
+    respond_to do |format|
+      format.json do        
+        if @email.save
+          #format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
+          head :no_content
+        else
+          #flash.now[:error] = "Please try again"
+          render json: @email.errors, status: :unprocessable_entity
+        end
+      end
+    end
+  end
+
+ def home
+    @email = Email.new
+  end
+
+  private
+
   def index
     @emails = Email.all
 
@@ -10,10 +36,6 @@ class EmailsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @emails }
     end
-  end
-
-  def home
-    @email = Email.new
   end
 
   # GET /emails/1
@@ -38,23 +60,7 @@ class EmailsController < ApplicationController
     @email = Email.find(params[:id])
   end
 
-  # POST /emails
-  # POST /emails.json
-  def create
-    @email = Email.new(params[:email])
 
-    respond_to do |format|
-      format.json do        
-        if @email.save
-          #format.html { redirect_to "localhost:3000", notice: "Success! We'll be in touch" }
-          head :no_content
-        else
-          #flash.now[:error] = "Please try again"
-          render json: @email.errors, status: :unprocessable_entity
-        end
-      end
-    end
-  end
 
   # PUT /emails/1
   # PUT /emails/1.json
