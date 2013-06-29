@@ -5,6 +5,8 @@ class EmailsController < ApplicationController
   # POST /emails
   # POST /emails.json
 
+  respond_to :js
+
   def create
     @email = Email.new(params[:email])
 
