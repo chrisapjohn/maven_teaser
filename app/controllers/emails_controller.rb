@@ -5,8 +5,6 @@ class EmailsController < ApplicationController
   # POST /emails
   # POST /emails.json
 
-  before_filter :authenticate_user!
-
   def create
     @email = Email.new(params[:email])
 

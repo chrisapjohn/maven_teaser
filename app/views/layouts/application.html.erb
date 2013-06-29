@@ -16,6 +16,9 @@
 		<% flash.each do |name, msg| %>
 			<%= content_tag(:div,msg,class: "alert alert-#{name}") %>
 		<% end %>
+	<div class="alert alert-success" id="success_message" style="display:none;">
+			Success! We'll be in touch.
+		</div>
 
 <%= yield %>
 
