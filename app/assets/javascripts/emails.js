@@ -15,13 +15,13 @@ $(document).ready(function(){
       data: valuesToSubmit,
       dataType: "JSON"
     }).success(function(json) {
+    	$('.btn-success').hide();
       $('#success_message').show();
 			var success_message_html = '<div class="alert alert-success" id="success_message">';
 			success_message_html += "Success! We'll be in touch.";
 			success_message_html += '</div>';
 			//console.log(this);
 			$form.before(success_message_html);
-			
     });
     return false; 
 	});
