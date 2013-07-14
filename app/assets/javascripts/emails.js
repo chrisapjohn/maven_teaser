@@ -15,6 +15,7 @@ $(document).ready(function(){
       data: valuesToSubmit,
       dataType: "JSON"
     }).success(function(json) {
+    	$('#email_form').hide();
     	$('.btn-success').hide();
       $('#success_message').show();
 			var success_message_html = '<div class="alert alert-success" id="success_message">';
