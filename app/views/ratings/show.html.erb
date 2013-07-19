@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Trust:</b>
+  <%= @rating.trust %>
+</p>
+
+<p>
+  <b>Communication:</b>
+  <%= @rating.communication %>
+</p>
+
+<p>
+  <b>Expertise:</b>
+  <%= @rating.expertise %>
+</p>
+
+
+<%= link_to 'Edit', edit_rating_path(@rating) %> |
+<%= link_to 'Back', ratings_path %>

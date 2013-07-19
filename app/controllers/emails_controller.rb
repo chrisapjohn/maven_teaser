@@ -7,6 +7,8 @@ class EmailsController < ApplicationController
 
   respond_to :js
 
+  before_filter :authenticate_user!, only: [:index, :edit]
+
   def create
     @email = Email.new(params[:email])
 
@@ -23,11 +25,9 @@ class EmailsController < ApplicationController
     end
   end
 
- def home
+  def home
     @email = Email.new
   end
-
-  private
 
   def index
     @emails = Email.all

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  firm: MyString
+  type: 
+  address: MyString
+  phone: MyString
+  email: MyString
+  website: MyString
+  sec_status: MyString
+  sec_disclosures: 1
+  finra_status: MyString
+  finra_disclosures: 1
+
+two:
+  name: MyString
+  firm: MyString
+  type: 
+  address: MyString
+  phone: MyString
+  email: MyString
+  website: MyString
+  sec_status: MyString
+  sec_disclosures: 1
+  finra_status: MyString
+  finra_disclosures: 1

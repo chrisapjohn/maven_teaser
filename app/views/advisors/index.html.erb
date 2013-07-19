@@ -1,0 +1,11 @@
+<table>
+<% @advisors.each do |advisor| %>
+  <tr>
+    <td>
+        <%= link_to advisor.name, advisor %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />

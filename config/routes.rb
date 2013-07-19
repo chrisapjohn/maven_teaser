@@ -1,5 +1,17 @@
 MavenTeaser::Application.routes.draw do
 
+  resources :search_suggestions
+
+
+  resources :ratings
+
+
+  resources :advisors
+
+authenticated do
+  root :to => "pages#home"
+end
+
   root :to => "emails#home"
 
   devise_for :users
@@ -8,7 +20,9 @@ MavenTeaser::Application.routes.draw do
 
   resources :users
 
+  get "pages/rate_my_advisor"
 
+  get "pages/find_an_advisor"
 
 
   # The priority is based upon order of creation:

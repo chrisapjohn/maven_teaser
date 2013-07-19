@@ -1,0 +1,61 @@
+<%= form_for(@advisor) do |f| %>
+  <% if @advisor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@advisor.errors.count, "error") %> prohibited this advisor from being saved:</h2>
+
+      <ul>
+      <% @advisor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :firm %><br />
+    <%= f.text_field :firm %>
+  </div>
+  <div class="field">
+    <%= f.label :advisor_type %><br />
+    <%= f.text_field :advisor_type %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
+    <%= f.label :sec_status %><br />
+    <%= f.text_field :sec_status %>
+  </div>
+  <div class="field">
+    <%= f.label :sec_disclosures %><br />
+    <%= f.number_field :sec_disclosures %>
+  </div>
+  <div class="field">
+    <%= f.label :finra_status %><br />
+    <%= f.text_field :finra_status %>
+  </div>
+  <div class="field">
+    <%= f.label :finra_disclosures %><br />
+    <%= f.number_field :finra_disclosures %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

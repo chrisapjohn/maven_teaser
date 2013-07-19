@@ -11,10 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601162433) do
+ActiveRecord::Schema.define(:version => 20130716201139) do
+
+  create_table "advisors", :force => true do |t|
+    t.string   "name"
+    t.string   "firm"
+    t.string   "advisor_type"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.string   "sec_status"
+    t.integer  "sec_disclosures"
+    t.string   "finra_status"
+    t.integer  "finra_disclosures"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "emails", :force => true do |t|
     t.string "email"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "trust"
+    t.integer  "communication"
+    t.integer  "expertise"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "advisor_id"
+  end
+
+  create_table "search_suggestions", :force => true do |t|
+    t.string   "term"
+    t.integer  "popularity"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

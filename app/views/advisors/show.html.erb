@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @advisor.name %>
+</p>
+
+<p>
+  <b>Firm:</b>
+  <%= @advisor.firm %>
+</p>
+
+<p>
+  <b>Advisor type:</b>
+  <%= @advisor.advisor_type %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @advisor.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @advisor.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @advisor.email %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @advisor.website %>
+</p>
+
+<p>
+  <b>Sec status:</b>
+  <%= @advisor.sec_status %>
+</p>
+
+<p>
+  <b>Sec disclosures:</b>
+  <%= @advisor.sec_disclosures %>
+</p>
+
+<p>
+  <b>Finra status:</b>
+  <%= @advisor.finra_status %>
+</p>
+
+<p>
+  <b>Finra disclosures:</b>
+  <%= @advisor.finra_disclosures %>
+</p>
+
+
+<%= link_to 'Edit', edit_advisor_path(@advisor) %> |
+<%= link_to 'Back', advisors_path %>

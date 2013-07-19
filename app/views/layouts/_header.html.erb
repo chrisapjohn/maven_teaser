@@ -10,12 +10,22 @@
 	      </a>
 	 
 	      <!-- Be sure to leave the brand out there if you want it shown -->
-	      <a class="brand", href="/" >MavenMarket</a>
+	      <a class="brand", href="/" ><i class="icon-leaf"></i>MavenMarket</a>
 	 
 	      <!-- Everything you want hidden at 940px or less, place within here -->
 	      <div class="nav-collapse collapse">
+	    		<ul class="nav pull-left">
+	    			<% if user_signed_in? %>
+	    				<li><%= link_to "Find An Advisor", "/pages/find_an_advisor" %></li>
+	    				<li><%= link_to "Rate My Advisor", "/pages/rate_my_advisor" %></li>
+	    			<% end %>
+	    		</ul>
 	    		<ul class="nav pull-right">
-	      		<li><%= link_to "Login", new_user_session_path, :id => "login_button" %></li>
+	      		<% if user_signed_in? %>
+	      			<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :id => "logout_button" %></li>
+	      		<% else %>
+	      			<li><%= link_to "Login", new_user_session_path, :id => "login_button" %></li>
+	    			<% end %>
 	    		</ul>
 	      </div>
 	    </div>

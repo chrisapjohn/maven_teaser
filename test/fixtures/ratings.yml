@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  trust: 1
+  communication: 1
+  expertise: 1
+
+two:
+  trust: 1
+  communication: 1
+  expertise: 1

@@ -2718,6 +2718,7 @@ table th[class*="span"],
 }
 
 .icon-leaf {
+  color: #408140;
   background-position: -48px -120px;
 }
 
@@ -6118,7 +6119,7 @@ a.badge:focus {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding: 0px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
