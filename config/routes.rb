@@ -2,11 +2,9 @@ MavenTeaser::Application.routes.draw do
 
   resources :search_suggestions
 
-
-  resources :ratings
-
-
-  resources :advisors
+  resources :advisors do
+    resources :ratings
+  end
 
 authenticated do
   root :to => "pages#home"

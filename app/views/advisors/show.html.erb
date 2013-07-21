@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor) %>
+
 <p>
   <b>Name:</b>
   <%= @advisor.name %>

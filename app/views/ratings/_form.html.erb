@@ -1,4 +1,4 @@
-<%= form_for(@rating) do |f| %>
+<%= simple_form_for ([@advisor, @rating]) do |f| %>
   <% if @rating.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
@@ -11,19 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :trust %><br />
-    <%= f.number_field :trust %>
-  </div>
-  <div class="field">
-    <%= f.label :communication %><br />
-    <%= f.number_field :communication %>
-  </div>
-  <div class="field">
-    <%= f.label :expertise %><br />
-    <%= f.number_field :expertise %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= f.input :trust, :collection => 1..5, :as => :radio, item_wrapper_class: 'inline' %>
+<%= f.input :communication, :collection => 1..5, :as => :radio, item_wrapper_class: 'inline' %>
+<%= f.input :expertise, :collection => 1..5, :as => :radio, item_wrapper_class: 'inline' %>
+<%= f.button :submit %>
+
 <% end %>
