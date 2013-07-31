@@ -67,6 +67,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    make_voteable (0.1.1)
+      activerecord (~> 3.0)
     mime-types (1.23)
     multi_json (1.7.4)
     newrelic_rpm (3.6.5.130)
@@ -144,6 +146,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  make_voteable
   newrelic_rpm
   paperclip (= 3.4.2)
   pg (= 0.12.2)

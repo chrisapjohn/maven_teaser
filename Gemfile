@@ -9,6 +9,7 @@ gem "aws-sdk"
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'newrelic_rpm'
 gem 'rails3-jquery-autocomplete'
+gem 'make_voteable'
 
 group :production do
 	gem 'pg', '0.12.2'

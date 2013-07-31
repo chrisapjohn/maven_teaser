@@ -12,8 +12,16 @@
   <% end %>
 
 <%= f.input :trust, :collection => 1..5, :as => :radio, item_wrapper_class: 'inline' %>
+<br />
 <%= f.input :communication, :collection => 1..5, :as => :radio, item_wrapper_class: 'inline' %>
+<br />
 <%= f.input :expertise, :collection => 1..5, :as => :radio, item_wrapper_class: 'inline' %>
+<br />
+<h3>About me</h3>
+<%= f.input :active, :label => "Active / Passive", :collection => [[1, 'Active'], [0, 'Passive']], :label_method => :last, :value_method => :first, :as => :radio %>
+<%= f.input :high_touch, :label => "High Touch / Low Touch", :collection => [[1, 'High Touch'], [0, 'Low Touch']], :label_method => :last, :value_method => :first, :as => :radio %>
+<%= f.input :follower, :label => "Follower / Contrarian", :collection => [[1, 'Follower'], [0, 'Contrarian']], :label_method => :last, :value_method => :first, :as => :radio %>
+<%= f.input :high_iq, :label => "High Financial IQ / Low Financial IQ", :collection => [[1, 'High Financial IQ'], [0, 'Low Financial IQ']], :label_method => :last, :value_method => :first, :as => :radio %>
 <%= f.button :submit %>
 
 <% end %>

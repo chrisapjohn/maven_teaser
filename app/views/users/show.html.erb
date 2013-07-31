@@ -10,6 +10,18 @@
   <%= @user.email %>
 </p>
 
+<% unless @user.questions.blank? %>
+	<h4>Financial Questions:</h4>
+<% end %>
+
+<p>
+	<% @user.questions.each do |x| %>
+		<table class="table">
+			<tr><td><b><%= link_to x.title, x %></b></td></tr>
+			<tr><td><%= x.details %></td></tr>
+		</table>
+	<% end %>
+</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

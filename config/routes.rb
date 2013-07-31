@@ -1,22 +1,34 @@
 MavenTeaser::Application.routes.draw do
 
+  devise_for :advisors
+
+  devise_for :users
+
+  authenticated :user do
+    root :to => "pages#home"
+  end
+
+  authenticated :advisor do
+    root :to => "pages#home"
+  end
+
   resources :search_suggestions
+
+  resources :emails
+
+  resources :questions do
+    resources :answers
+  end
 
   resources :advisors do
     resources :ratings
   end
 
-authenticated do
-  root :to => "pages#home"
-end
+  resources :users do
+    resources :ratings
+  end
 
   root :to => "emails#home"
-
-  devise_for :users
-
-  resources :emails
-
-  resources :users
 
   get "pages/rate_my_advisor"
 

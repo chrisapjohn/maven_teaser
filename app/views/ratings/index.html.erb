@@ -1,4 +1,4 @@
-<h1>Listing ratings</h1>
+<h1>Ratings for <%= @advisor.name %></h1>
 
 <table>
   <tr>
@@ -6,6 +6,10 @@
     <th>Communication</th>
     <th>Expertise</th>
     <th>Advisor id</th>
+    <th>Active</th>
+    <th>High Touch</th>
+    <th>Follower</th>
+    <th>High IQ</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +21,10 @@
     <td><%= rating.communication %></td>
     <td><%= rating.expertise %></td>
     <td><%= rating.advisor_id %></td>
+    <td><%= rating.active %></td>
+    <td><%= rating.high_touch %></td>
+    <td><%= rating.follower %></td>
+    <td><%= rating.high_iq %></td>
     <td><%= link_to 'Show', advisor_rating_path(@advisor, rating) %></td>
     <td><%= link_to 'Edit', edit_advisor_rating_path(@advisor, rating) %></td>
     <td><%= link_to 'Destroy', [@advisor, rating], method: :delete, data: { confirm: 'Are you sure?' } %></td>

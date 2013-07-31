@@ -1,6 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<p>
 <%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor) %>
+</p>
+
+<% if @advisor.ratings.blank? %>
+<p>
+  This advisor has not yet been rated.
+</p>
+<% else %>
+<p>
+  Trust: 
+      <%= @advisor.ratings.average('trust').round(1) %>
+</p>
+<p>
+  Communication: <%= @advisor.ratings.average('communication').round(1) %>
+</p>
+<p>
+  Expertise: <%= @advisor.ratings.average('expertise').round(1) %>
+</p>
+<% end %>
 
 <p>
   <b>Name:</b>

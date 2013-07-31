@@ -1,0 +1,12 @@
+<table>
+	<tr>
+		<td><strong><%= @question.title %></strong></td>
+	</tr>
+	<tr>
+		<td><%= @question.details %></td>
+	</tr>
+</table>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', question_answers_path %>

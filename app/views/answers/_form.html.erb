@@ -1,0 +1,11 @@
+<%= simple_form_for([@question, @answer]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.input :answer %>
+  </div>
+
+  <div class="form-group">
+    <%= f.button :submit %>
+  </div>
+<% end %>

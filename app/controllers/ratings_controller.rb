@@ -2,9 +2,14 @@ class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.json
   before_filter :get_advisor
+  before_filter :get_user
 
   def get_advisor
     @advisor = Advisor.find(params[:advisor_id])
+  end
+
+  def get_user
+    @user = current_user.id
   end
 
   def index
@@ -47,6 +52,7 @@ class RatingsController < ApplicationController
   # POST /ratings.json
   def create
     @rating = @advisor.ratings.new(params[:rating])
+    @rating.user = User.find(current_user.id)
 
     respond_to do |format|
       if @rating.save
