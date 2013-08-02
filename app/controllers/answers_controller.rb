@@ -8,12 +8,14 @@ class AnswersController < ApplicationController
   end
 
   def index
-    @answers = @question.answers.all
+    @answers = @question.answers.find_with_reputation(:votes, :all, order: "votes desc")
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @answers }
-    end
+  def votea
+    value = params[:type] == "up" ? 1 : -1
+    @answer = @question.answers.find(params[:id])
+    @answer.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
   # GET /answers/1

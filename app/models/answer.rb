@@ -5,4 +5,5 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
 
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

@@ -1,22 +1,30 @@
-<div>
-  <h2>Find A Financial Advisor</h2>
-  <p>We use data and algorithms to match you with the world's best advisors</p>
-  <p>
-    <%= link_to "Get started", "/pages/find_an_advisor", class: "btn btn-large btn-success" %>
-  </p>
-<div>
-
-<div>	
-	<h3>Got An Advisor? Rate Them!</h3>
-		<%= form_tag advisors_path, :class => "form-inline", method: :get do %>
-	  <%= text_field_tag :search %>
-	  <%= submit_tag "Search", :class => "btn", name:nil %>
-<% end %>
-</div>
-
-<div>
-	<h3>Financial Questions Answered By Experts <%= link_to "Ask a new question", "/questions", class: "btn btn-success" %>
-		<div id="questions"></h3>
-  		<%= render @questions %>
-		</div>
-</div>
+<table class="table">	
+	<div>
+	  <h2>Find A Financial Advisor</h2>
+	  <p>We use data and algorithms to match you with the world's best advisors</p>
+	  <p>
+	    <%= link_to "Get started", "/pages/find_an_advisor", class: "btn btn-large btn-success" %>
+	  </p>
+	<div>
+	<tr>
+		<td>
+			<div>	
+				<h3>Got An Advisor? Rate Them!</h3>
+					<%= form_tag advisors_path, :class => "form-inline", method: :get do %>
+				  <%= text_field_tag :search %>
+				  <%= submit_tag "Search", :class => "btn", name:nil %>
+			<% end %>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div>
+				<h3>Financial Questions Answered By Experts <%= link_to "Ask a new question", "/questions", class: "btn btn-success" %>
+					<div id="questions"></h3>
+			  		<%= render @questions %>
+					</div>
+			</div>
+		</td>
+	</tr>
+</table>
