@@ -5,5 +5,5 @@ class Question < ActiveRecord::Base
 
   has_many :answers
 
-  make_voteable
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

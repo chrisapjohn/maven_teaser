@@ -22,6 +22,7 @@ GEM
       activesupport (= 3.2.12)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-reputation-system (2.0.2)
     activeresource (3.2.12)
       activemodel (= 3.2.12)
       activesupport (= 3.2.12)
@@ -34,8 +35,6 @@ GEM
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.3.0.1)
-      sass (~> 3.2)
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -67,8 +66,6 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    make_voteable (0.1.1)
-      activerecord (~> 3.0)
     mime-types (1.23)
     multi_json (1.7.4)
     newrelic_rpm (3.6.5.130)
@@ -140,13 +137,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-reputation-system
   aws-sdk
-  bootstrap-sass (~> 2.3.0.1)
   cocaine (= 0.5.1)
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
-  make_voteable
   newrelic_rpm
   paperclip (= 3.4.2)
   pg (= 0.12.2)

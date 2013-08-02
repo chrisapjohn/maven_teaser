@@ -12,6 +12,12 @@ class User < ActiveRecord::Base
 
   has_many :questions
 
-  make_voter
+  has_many :evaluations, class_name: "RSEvaluation", as: :source
+
+	has_reputation :votes, source: {reputation: :votes, of: :questions}, aggregated_by: :sum
+
+	def voted_for?(question)
+	  evaluations.where(target_type: question.class, target_id: question.id).present?
+	end
 
 end

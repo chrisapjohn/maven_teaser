@@ -1,18 +1,20 @@
 class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
-  def up_vote
-    @question = Question.find(params[:id])
-    current_user.up_vote(@question)
-  end
-
   def index
-    @questions = Question.all
+    @questions = Question.find_with_reputation(:votes, :all, order: "votes desc")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @questions }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @question = Question.find(params[:id])
+    @question.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
   # GET /questions/1

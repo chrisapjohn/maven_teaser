@@ -5,5 +5,4 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question
 
-  make_voteable
 end

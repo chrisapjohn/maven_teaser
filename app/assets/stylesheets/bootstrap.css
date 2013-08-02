@@ -1,11 +1,11 @@
 /*!
  * Bootstrap v2.3.2
  *
- * Copyright 2012 Twitter, Inc
+ * Copyright 2013 Twitter, Inc
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ * Designed and built with all the love in the world by @mdo and @fat.
  */
 
 .clearfix {
@@ -2718,8 +2718,8 @@ table th[class*="span"],
 }
 
 .icon-leaf {
-  color: #408140;
   background-position: -48px -120px;
+  color: #408140;
 }
 
 .icon-fire {
@@ -6119,7 +6119,7 @@ a.badge:focus {
 }
 
 .hero-unit {
-  padding: 0px;
+  padding: 60px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;

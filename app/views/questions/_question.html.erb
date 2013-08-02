@@ -1,14 +1,30 @@
-<table class="table table-hover">
-  <tr>
-    <td><strong><%= link_to question.title, question %></strong> Asked by <%= question.user.name %></td>
-  </tr>
-  <tr>
-    <td><%= question.details %></td>
-  </tr>
+<div class="well well-small">
+    <%= link_to question.title, question %> Asked by <%= question.user.name %>
+      <table class="table">
+      <tr>
+        <td><%= question.details %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= pluralize question.reputation_for(:votes).to_i, "vote" %>
+          <% if current_user && !current_user.voted_for?(question) %>
+          | <%= link_to "up", vote_question_path(question, type: "up"), method: "post" %>
+          | <%= link_to "down", vote_question_path(question, type: "down"), method: "post" %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
   <% question.answers.each do |answer| %>
-    <tr>
-      <td><li><%= answer.answer %></li></td>
-    </tr>
+    <div class="well well-small">
+        Answered by <%= link_to answer.advisor.name, answer.advisor %>
+      <table class="table">
+        <tr>
+          <td><%= answer.answer %></td>
+        </tr>
+        <tr>
+          <td>up | down</td>
+        </tr>
+      </table>
+    </div>
   <% end %>
-  </tr>
-</table>
+</div>

@@ -17,6 +17,7 @@ MavenTeaser::Application.routes.draw do
   resources :emails
 
   resources :questions do
+    member { post :vote }
     resources :answers
   end
 

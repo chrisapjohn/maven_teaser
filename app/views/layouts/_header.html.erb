@@ -1,43 +1,43 @@
-	<div class="navbar navbar-fixed-top">
-	  <div class="navbar-inner">
-	    <div class="container">
-	 
-	      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </a>
-	 
-	      <!-- Be sure to leave the brand out there if you want it shown -->
-	      <a class="brand", href="/" ><i class="icon-leaf"></i>MavenMarket</a>
-	 
-	      <!-- Everything you want hidden at 940px or less, place within here -->
-	      <div class="nav-collapse collapse">
-	    		<ul class="nav pull-left">
-	    			<% if user_signed_in? %>
-	    				<li><%= link_to "Find An Advisor", "/pages/find_an_advisor" %></li>
-	    				<li><%= link_to "Rate My Advisor", "/pages/rate_my_advisor" %></li>
-	    				<li><%= link_to "Ask A Financial Question", questions_path %></li>
-	    			<% end %>
-	    			<% if advisor_signed_in? %>
-	    				<li><%= link_to "My Profile", current_advisor %></li>
-	    				<li><%= link_to "Financial Questions", questions_path %></li>
-	    			<% end %>
-	    		</ul>
-	    		<ul class="nav pull-right">
-	      		<% if user_signed_in? %>
-	      			<li><%= link_to "Signed in as #{current_user.name}", current_user %></li>
-	      			<li><%= link_to "Logout", destroy_user_session_path, method: :delete, :id => "logout_button" %></li>
-	      		<% elsif advisor_signed_in? %>
-	      			<li><%= link_to "Signed in as #{current_advisor.name}", current_advisor %></li>
-	      			<li><%= link_to "Logout", destroy_advisor_session_path, method: :delete, :id => "logout_button" %></li>
-	      		<% else %>
-	      			<li><%= link_to "Login", new_user_session_path, :id => "login_button" %></li>
-	      			<li><%= link_to "Advisor Login", new_advisor_session_path, :id => "login_button" %></li>
-	    			<% end %>
-	    		</ul>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <!-- Be sure to leave the brand out there if you want it shown -->
+        <a class="brand", href="/" ><i class="icon-leaf"></i>MavenMarket</a>
+
+        <!-- Everything you want hidden at 940px or less, place within here -->
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-left">
+            <% if user_signed_in? %>
+              <li><%= link_to "Find An Advisor", "/pages/find_an_advisor" %></li>
+              <li><%= link_to "Rate My Advisor", "/pages/rate_my_advisor" %></li>
+              <li><%= link_to "Ask A Financial Question", questions_path %></li>
+            <% end %>
+            <% if advisor_signed_in? %>
+              <li><%= link_to "My Profile", current_advisor %></li>
+              <li><%= link_to "Financial Questions", questions_path %></li>
+            <% end %>
+          </ul>
+          <ul class="nav pull-right">
+            <% if user_signed_in? %>
+              <li><%= link_to "Signed in as #{current_user.name}", current_user %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :id => "logout_button" %></li>
+            <% elsif advisor_signed_in? %>
+              <li><%= link_to "Signed in as #{current_advisor.name}", current_advisor %></li>
+              <li><%= link_to "Logout", destroy_advisor_session_path, method: :delete, :id => "logout_button" %></li>
+            <% else %>
+              <li><%= link_to "Login", new_user_session_path, :id => "login_button" %></li>
+              <li><%= link_to "Advisor Login", new_advisor_session_path, :id => "login_button" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
