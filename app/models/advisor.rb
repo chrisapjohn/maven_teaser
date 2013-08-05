@@ -13,9 +13,13 @@ class Advisor < ActiveRecord::Base
 
   has_many :answers
 
-  def aggregate
-  	trust = self.ratings.average('trust')
-  	puts trust
+  has_many :questions, :through => :answers
+
+  has_reputation :answering_skill,
+      :source => { :reputation => :votes, :of => :answers }
+
+  def aggregate_profile
+    Advisor.ratings.all()
   end
 
   def self.search(search)

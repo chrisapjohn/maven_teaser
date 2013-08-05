@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor) %>
+<%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor), class: "btn btn-small btn-success" %>
 </p>
 
 <% if @advisor.ratings.blank? %>
@@ -20,6 +20,21 @@
   Expertise: <%= @advisor.ratings.average('expertise').round(1) %>
 </p>
 <% end %>
+
+<p>
+Financial Expertise Ranking: <%= @advisor.reputation_for(:answering_skill).to_i %>
+</p>
+
+<p>
+  <strong>Questions answered:</strong>
+</p>
+
+  <% @advisor.answers.each do |answer| %>
+    <p>
+    <%= link_to answer.question.title, answer.question %>
+    <%= answer.reputation_for(:votes) %>
+    </p>
+  <% end %>
 
 <p>
   <b>Name:</b>

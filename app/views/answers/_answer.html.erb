@@ -7,8 +7,8 @@
     <tr>
       | <%= pluralize answer.reputation_for(:votes).to_i, "vote" %>
       <% if current_user && !current_user.voted_for?(answer) %>
-      | <%= link_to "up", vote_question_answer_path(answer, type: "up"), method: "post" %>
-      | <%= link_to "down", vote_question_answer_path(answer, type: "down"), method: "post" %>
+      | <%= link_to "up", vote_question_answer_path(@question, answer, type: "up"), method: "post" %>
+      | <%= link_to "down", vote_question_answer_path(@question,answer, type: "down"), method: "post" %>
       <% end %>
     </tr>
   </table>

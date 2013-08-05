@@ -54,6 +54,10 @@ class RatingsController < ApplicationController
     @rating = @advisor.ratings.new(params[:rating])
     @rating.user = User.find(current_user.id)
 
+    if @rating.save
+      
+    end
+
     respond_to do |format|
       if @rating.save
         format.html { redirect_to [@advisor, @rating], notice: 'Rating was successfully created.' }

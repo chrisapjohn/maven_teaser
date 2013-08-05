@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answers = @question.answers.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
-  def votea
+  def vote
     value = params[:type] == "up" ? 1 : -1
     @answer = @question.answers.find(params[:id])
     @answer.add_or_update_evaluation(:votes, value, current_user)

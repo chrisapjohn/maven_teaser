@@ -5,5 +5,21 @@
   <%= @answer.answer %>
 </p>
 
+<div class="well well-small">
+  Answered by <%= link_to @answer.advisor.name, @answer.advisor %>
+  <table class="table">
+    <tr>
+      <td><%= @answer.answer %></td>
+    </tr>
+    <tr>
+      | <%= pluralize @answer.reputation_for(:votes).to_i, "vote" %>
+      <% if current_user && !Answer.evaluated_by(:votes, current_user).include?(@answer) %>
+      | <%= link_to "up", vote_question_answer_path(@question, @answer, type: "up"), method: "post" %>
+      | <%= link_to "down", vote_question_answer_path(@answer, type: "down"), method: "post" %>
+      <% end %>
+    </tr>
+  </table>
+</div>
+
 <%= link_to 'Edit', edit_question_answer_path(@question, @answer) %> |
 <%= link_to 'Back', question_answers_path(@question) %>
