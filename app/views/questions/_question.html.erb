@@ -1,5 +1,6 @@
 <div class="well well-small">
-    <%= link_to question.title, question %> Asked by <%= question.user.name %>
+    <%= link_to question.title, question %> Asked by <%= question.user.name %> <%= question.updated_at.to_formatted_s(:long) %>
+    <span class="label"><%= question.topic %></span>
       <table class="table">
       <tr>
         <td><%= question.details %></td>
@@ -17,18 +18,29 @@
   <% question.answers.each do |answer| %>
   <div class="well well-small">
     Answered by <%= link_to answer.advisor.name, answer.advisor %>
-    <table class="table">
-      <tr>
-        <td><%= answer.answer %></td>
-      </tr>
-      <tr>
-        | <%= pluralize answer.reputation_for(:votes).to_i, "vote" %>
-        <% if current_user && !Answer.evaluated_by(:votes, current_user).include?(answer) %>
-        | <%= link_to "up", vote_question_answer_path(question, answer, type: "up"), method: "post" %>
-        | <%= link_to "down", vote_question_answer_path(question,answer, type: "down"), method: "post" %>
-        <% end %>
-      </tr>
-    </table>
+    <% unless !answer.advisor.avatar? %>
+      <div class="media">
+        <a class="pull-left">
+          <%= image_tag answer.advisor.avatar.url(:thumb) %>
+        </a>
+    <% end %>
+    <div class="media-body">
+      <table class="table">
+        <tr>
+          <td><%= answer.answer %></td>
+        </tr>
+        <tr>
+          <td>
+            <%= pluralize answer.reputation_for(:votes).to_i, "vote" %>
+            <% if current_user && !Answer.evaluated_by(:votes, current_user).include?(answer) %>
+            | <%= link_to "up", vote_question_answer_path(question, answer, type: "up"), method: "post" %>
+            | <%= link_to "down", vote_question_answer_path(question,answer, type: "down"), method: "post" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+    </div>
   </div>
   <% end %>
 </div>

@@ -1,8 +1,23 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <h3>
+    <%= @advisor.name %>
+    <% if current_advisor == @advisor %>
+       | <%= link_to "Edit profile", edit_advisor_path %>
+    <% end %>
+  </h3>
+</p>
 
 <p>
-<%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor), class: "btn btn-small btn-success" %>
+  <% unless !@advisor.avatar? %>
+  <%= image_tag @advisor.avatar.url(:medium) %>
+  <% end %>
 </p>
+
+<% unless !current_user %>
+  <p>
+    <%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor), class: "btn btn-small btn-success" %>
+  </p>
+<% end %>
 
 <% if @advisor.ratings.blank? %>
 <p>
@@ -22,12 +37,17 @@
 <% end %>
 
 <p>
-Financial Expertise Ranking: <%= @advisor.reputation_for(:answering_skill).to_i %>
+Financial Expertise Votes: <%= @advisor.reputation_for(:answering_skill).to_i %>
 </p>
 
 <p>
   <strong>Questions answered:</strong>
 </p>
+  <% if @advisor.answers.empty? %>
+    <p>
+      <%= link_to "Advisor has not answered any questions", questions_path %>
+    </p>
+  <% end %>
 
   <% @advisor.answers.each do |answer| %>
     <p>
@@ -35,11 +55,6 @@ Financial Expertise Ranking: <%= @advisor.reputation_for(:answering_skill).to_i 
     <%= answer.reputation_for(:votes) %>
     </p>
   <% end %>
-
-<p>
-  <b>Name:</b>
-  <%= @advisor.name %>
-</p>
 
 <p>
   <b>Firm:</b>
@@ -90,7 +105,3 @@ Financial Expertise Ranking: <%= @advisor.reputation_for(:answering_skill).to_i 
   <b>Finra disclosures:</b>
   <%= @advisor.finra_disclosures %>
 </p>
-
-
-<%= link_to 'Edit', edit_advisor_path(@advisor) %> |
-<%= link_to 'Back', advisors_path %>

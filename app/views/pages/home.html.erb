@@ -22,7 +22,7 @@
 			<div>
 				<h3>Financial Questions Answered By Experts <%= link_to "Ask a new question", "/questions", class: "btn btn-success" %>
 					<div id="questions"></h3>
-			  		<%= render @questions %>
+			  		<%= render @questions.sort_by(&:updated_at).reverse.select { |question| !question.answers.empty? } %>
 					</div>
 			</div>
 		</td>

@@ -1,10 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Answer:</b>
-  <%= @answer.answer %>
-</p>
-
 <div class="well well-small">
   Answered by <%= link_to @answer.advisor.name, @answer.advisor %>
   <table class="table">
@@ -21,5 +16,7 @@
   </table>
 </div>
 
-<%= link_to 'Edit', edit_question_answer_path(@question, @answer) %> |
+<% if current_user && Answer.evaluated_by(:votes, current_user).include?(@answer) %>
+  <%= link_to 'Edit', edit_question_answer_path(@question, @answer) %> |
+<% end %>
 <%= link_to 'Back', question_answers_path(@question) %>

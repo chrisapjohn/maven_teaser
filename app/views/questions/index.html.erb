@@ -1,6 +1,7 @@
-<h3>Ask A Financial Question</h3>
-
-<%= render 'form' %>
+<% unless current_advisor %>
+	<h3>Ask A Financial Question</h3>
+	<%= render 'form' %>
+<% end %>
 
 <div id="questions">
   <%= render @questions %>

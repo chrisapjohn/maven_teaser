@@ -1,0 +1,14 @@
+development:
+  bucket: maven_teaser
+  access_key_id: AKIAJDO5R6IUYW5QUMNQ
+  secret_access_key: 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
+
+test:
+  bucket: maven_teaser
+  access_key_id: AKIAJDO5R6IUYW5QUMNQ
+  secret_access_key: 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
+
+production:
+  bucket: maven_teaser
+  access_key_id: AKIAJDO5R6IUYW5QUMNQ
+  secret_access_key: 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
