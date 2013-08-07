@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.12'
 gem 'devise'
 gem 'simple_form'
-gem "paperclip", '= 3.4.1'
+gem "paperclip", '= 3.4.2'
 gem "cocaine", "= 0.5"  
 gem "aws-sdk"
 gem 'newrelic_rpm'
