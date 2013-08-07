@@ -3,6 +3,10 @@
 	<%= render 'form' %>
 <% end %>
 
+<%= paginate @questions %>
+
 <div id="questions">
   <%= render @questions %>
 </div>
+
+<%= paginate @questions %>

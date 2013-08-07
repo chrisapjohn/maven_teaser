@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.find_with_reputation(:votes, :all, order: "votes desc")
+    @questions = Question.page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
