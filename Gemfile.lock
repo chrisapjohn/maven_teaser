@@ -74,7 +74,7 @@ GEM
     newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
-    paperclip (3.4.1)
+    paperclip (3.4.2)
       activemodel (>= 3.0.0)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -148,7 +148,7 @@ DEPENDENCIES
   jquery-rails (~> 2.3.0)
   kaminari
   newrelic_rpm
-  paperclip (= 3.4.1)
+  paperclip (= 3.4.2)
   pg (= 0.12.2)
   rails (= 3.2.12)
   rails3-jquery-autocomplete
