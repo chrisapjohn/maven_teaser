@@ -43,4 +43,7 @@
     </div>
   </div>
   <% end %>
+  <% unless !current_advisor %>
+    <%= link_to "Answer question", question, class: "btn btn-small btn-success" %>
+  <% end %>
 </div>
