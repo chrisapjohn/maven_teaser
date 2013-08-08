@@ -25,8 +25,29 @@ class Advisor < ActiveRecord::Base
   has_reputation :answering_skill,
       :source => { :reputation => :votes, :of => :answers }
 
-  def aggregate_profile
-    Advisor.ratings.all()
+  def update_composite_rating
+    self.composite_rating = self.ratings.average('trust') * 0.8 + self.ratings.average('communication') * 0.1 + self.ratings.average('expertise') * 0.1
+    self.save
+  end
+
+  def update_active_passive
+    self.active_passive = self.ratings.average('active')
+    self.save
+  end
+
+  def update_high_touch_low_touch
+    self.high_touch_low_touch = self.ratings.average('high_touch')
+    self.save
+  end
+
+  def update_follower_contrarian
+    self.follower_contrarian = self.ratings.average('follower')
+    self.save
+  end
+
+  def update_high_iq_low_iq
+    self.high_iq_low_iq = self.ratings.average('high_iq')
+    self.save
   end
 
   def self.search(search)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806172444) do
+ActiveRecord::Schema.define(:version => 20130808223543) do
 
   create_table "advisors", :force => true do |t|
     t.string   "name"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20130806172444) do
     t.integer  "sec_disclosures"
     t.string   "finra_status"
     t.integer  "finra_disclosures"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.string   "encrypted_password",     :default => "",  :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(:version => 20130806172444) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.decimal  "composite_rating",       :default => 0.5
+    t.decimal  "active_passive",         :default => 0.5
+    t.decimal  "high_touch_low_touch",   :default => 0.5
+    t.decimal  "follower_contrarian",    :default => 0.5
+    t.decimal  "high_iq_low_iq",         :default => 0.5
   end
 
   add_index "advisors", ["email"], :name => "index_advisors_on_email", :unique => true

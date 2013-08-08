@@ -7,7 +7,9 @@
       </tr>
       <tr>
         <td>
-          <%= pluralize question.reputation_for(:votes).to_i, "vote" %>
+          <span class="label">
+            <%= pluralize question.reputation_for(:votes).to_i, "vote" %>
+          </span>
           <% if current_user && !Question.evaluated_by(:votes, current_user).include?(question) %>
           | <%= link_to "up", vote_question_path(question, type: "up"), method: "post" %>
           | <%= link_to "down", vote_question_path(question, type: "down"), method: "post" %>

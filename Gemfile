@@ -10,6 +10,10 @@ gem 'newrelic_rpm'
 gem 'rails3-jquery-autocomplete'
 gem 'activerecord-reputation-system', require: 'reputation_system'
 gem 'kaminari'
+gem 'pry-rails'
+gem 'pry-remote'
+gem 'pry-stack_explorer'
+gem 'pry-debugger'
 
 group :production do
 	gem 'pg', '0.12.2'

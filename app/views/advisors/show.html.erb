@@ -37,7 +37,7 @@
 <% end %>
 
 <p>
-Financial Expertise Votes: <%= @advisor.reputation_for(:answering_skill).to_i %>
+Financial Expertise Votes: <span class="badge badge-success"><%= @advisor.reputation_for(:answering_skill).to_i %></span>
 </p>
 
 <p>
@@ -51,8 +51,7 @@ Financial Expertise Votes: <%= @advisor.reputation_for(:answering_skill).to_i %>
 
   <% @advisor.answers.each do |answer| %>
     <p>
-    <%= link_to answer.question.title, answer.question %>
-    <%= answer.reputation_for(:votes) %>
+    <%= link_to answer.question.title, answer.question %><span class="label"><%= answer.question.topic %></span>
     </p>
   <% end %>
 
