@@ -1,0 +1,29 @@
+<h1>Listing matches</h1>
+
+<table>
+  <tr>
+    <th>Active passive</th>
+    <th>High touch low touch</th>
+    <th>Follower contrarian</th>
+    <th>High iq low iq</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @matches.each do |match| %>
+  <tr>
+    <td><%= match.active_passive %></td>
+    <td><%= match.high_touch_low_touch %></td>
+    <td><%= match.follower_contrarian %></td>
+    <td><%= match.high_iq_low_iq %></td>
+    <td><%= link_to 'Show', match %></td>
+    <td><%= link_to 'Edit', edit_match_path(match) %></td>
+    <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Match', new_match_path %>

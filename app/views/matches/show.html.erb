@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Active passive:</b>
+  <%= @match.active_passive %>
+</p>
+
+<p>
+  <b>High touch low touch:</b>
+  <%= @match.high_touch_low_touch %>
+</p>
+
+<p>
+  <b>Follower contrarian:</b>
+  <%= @match.follower_contrarian %>
+</p>
+
+<p>
+  <b>High iq low iq:</b>
+  <%= @match.high_iq_low_iq %>
+</p>
+
+
+<%= link_to 'Edit', edit_match_path(@match) %> |
+<%= link_to 'Back', matches_path %>

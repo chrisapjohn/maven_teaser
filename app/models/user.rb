@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :questions
 
+  has_many :advisors, :through => :matches
+
  #  has_many :evaluations, class_name: "RSEvaluation", as: :source
 
 	# def voted_for?(question)

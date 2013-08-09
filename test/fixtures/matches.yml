@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  active_passive: 9.99
+  high_touch_low_touch: 9.99
+  follower_contrarian: 9.99
+  high_iq_low_iq: 9.99
+
+two:
+  active_passive: 9.99
+  high_touch_low_touch: 9.99
+  follower_contrarian: 9.99
+  high_iq_low_iq: 9.99

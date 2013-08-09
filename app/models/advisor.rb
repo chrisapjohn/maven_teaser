@@ -22,6 +22,8 @@ class Advisor < ActiveRecord::Base
 
   has_many :questions, :through => :answers
 
+  has_many :users, :through => :matches
+
   has_reputation :answering_skill,
       :source => { :reputation => :votes, :of => :answers }
 

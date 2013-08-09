@@ -1,5 +1,8 @@
 MavenTeaser::Application.routes.draw do
 
+  resources :matches
+
+
   devise_for :advisors
 
   devise_for :users

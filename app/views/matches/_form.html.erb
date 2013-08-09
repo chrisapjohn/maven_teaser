@@ -1,0 +1,14 @@
+<%= simple_form_for(@match) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :active_passive %>
+    <%= f.input :high_touch_low_touch %>
+    <%= f.input :follower_contrarian %>
+    <%= f.input :high_iq_low_iq %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

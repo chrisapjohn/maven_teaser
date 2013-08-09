@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808223543) do
+ActiveRecord::Schema.define(:version => 20130809002947) do
 
   create_table "advisors", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130808223543) do
     t.decimal  "high_touch_low_touch",   :default => 0.5
     t.decimal  "follower_contrarian",    :default => 0.5
     t.decimal  "high_iq_low_iq",         :default => 0.5
+    t.integer  "user_id"
   end
 
   add_index "advisors", ["email"], :name => "index_advisors_on_email", :unique => true
@@ -61,6 +62,17 @@ ActiveRecord::Schema.define(:version => 20130808223543) do
 
   create_table "emails", :force => true do |t|
     t.string "email"
+  end
+
+  create_table "matches", :force => true do |t|
+    t.decimal  "active_passive"
+    t.decimal  "high_touch_low_touch"
+    t.decimal  "follower_contrarian"
+    t.decimal  "high_iq_low_iq"
+    t.integer  "advisor_id"
+    t.integer  "user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "questions", :force => true do |t|
@@ -154,6 +166,7 @@ ActiveRecord::Schema.define(:version => 20130808223543) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "advisor_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
