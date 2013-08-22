@@ -1,0 +1,11 @@
+<% @user.mailbox.inbox.each do |inbox| %>
+	<% inbox.messages.each do |message| %>
+		<table>
+			<tr>
+				<td><%= message.sender.name %></td>
+				<td><%= message.created_at %></td>
+				<td><%= link_to message.body, message %></td>
+			</tr>
+		</table>
+	<% end %>	
+<% end %>

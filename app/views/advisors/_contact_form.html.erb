@@ -1,0 +1,5 @@
+<%= simple_form_for :message, :url => url_for(:action => 'create', :controller => 'messages')  do |f| %>
+	<%= f.input :body %>
+	<%= f.input :subject %>
+	<%= f.submit %>
+<% end %>
