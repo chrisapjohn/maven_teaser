@@ -14,6 +14,7 @@ gem 'pry-rails'
 gem 'pry-remote'
 gem 'pry-stack_explorer'
 gem 'pry-debugger'
+gem 'mailboxer'
 
 group :production do
 	gem 'pg', '0.12.2'

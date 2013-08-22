@@ -1,7 +1,7 @@
 <table class="table">	
 	<div>
-	  <h2>Find A Financial Advisor</h2>
-	  <p>We use data and algorithms to match you with the world's best advisors</p>
+	  <h2>Advisor Match</h2>
+	  <p>We use data and behavioral science to match you with the world's best advisors</p>
 	  <p>
 	    <%= link_to "Get started", "/pages/find_an_advisor", class: "btn btn-large btn-success" %>
 	  </p>
@@ -9,9 +9,9 @@
 	<tr>
 		<td>
 			<div>	
-				<h3>Got An Advisor? Rate Them!</h3>
+				<h3>Find Advisor By Name</h3>
 					<%= form_tag advisors_path, :class => "form-inline", method: :get do %>
-				  <%= text_field_tag :search %>
+				  <%= text_field_tag :search, nil, :placeholder => "Enter advisor name" %>
 				  <%= submit_tag "Search", :class => "btn", name:nil %>
 			<% end %>
 			</div>
@@ -19,12 +19,24 @@
 	</tr>
 	<tr>
 		<td>
-			<div>
-				<h3>Financial Questions Answered By Experts <%= link_to "Ask a new question", "/questions", class: "btn btn-success" %>
-					<div id="questions"></h3>
-			  		<%= render @questions.sort_by(&:updated_at).reverse %>
-					</div>
-			</div>
+			<h3>
+				Financial Questions Answered By Experts
+			</h3>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			<%= form_tag questions_path, :class => "form-inline", method: :get do %>
+		  <%= text_field_tag :search, nil, :placeholder => "Search for a topic" %>
+		  <%= submit_tag "Search", :class => "btn", name:nil %>
+		  <% end %>
+			<%= link_to "Ask a new question", "/questions", class: "btn btn-success" %>
+		</td>
+	</tr>
+	<tr>
+		<td>		
+			<%= render @questions.sort_by(&:updated_at).reverse %>
+		</td>
+	</tr>
+		
 </table>

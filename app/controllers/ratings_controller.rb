@@ -2,14 +2,10 @@ class RatingsController < ApplicationController
   # GET /ratings
   # GET /ratings.json
   before_filter :get_advisor
-  before_filter :get_user
+  before_filter :authenticate_user!, :except => [:show, :index, :new, :create]
 
   def get_advisor
     @advisor = Advisor.find(params[:advisor_id])
-  end
-
-  def get_user
-    @user = current_user.id
   end
 
   def index
@@ -51,14 +47,13 @@ class RatingsController < ApplicationController
   # POST /ratings
   # POST /ratings.json
   def create
-    @rating = @advisor.ratings.new(params[:rating])
-    @rating.user = User.find(current_user.id)
-
-    if @rating.save
-      
-    end
-
-    respond_to do |format|
+    if current_user.nil?
+      session[:rating] = params
+      redirect_to new_user_registration_path
+    else
+      @rating = @advisor.ratings.new(params[:rating])
+      @rating.user = User.find(current_user.id)
+      respond_to do |format|
       if @rating.save
         format.html { redirect_to [@advisor, @rating], notice: 'Rating was successfully created.' }
         format.json { render json: [@advisor, @rating], status: :created, location: @rating }
@@ -68,6 +63,7 @@ class RatingsController < ApplicationController
       end
     end
   end
+end
 
   # PUT /ratings/1
   # PUT /ratings/1.json

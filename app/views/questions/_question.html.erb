@@ -1,5 +1,5 @@
 <div class="well well-small">
-    <%= link_to question.title, question %> Asked by <%= question.user.name %> <%= question.updated_at.to_formatted_s(:long) %>
+    Asked by <%= question.user.name %> <%= question.updated_at.to_formatted_s(:long) %>
     <span class="label"><%= question.topic %></span>
       <table class="table">
       <tr>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
           <td>
-            <%= pluralize answer.reputation_for(:votes).to_i, "vote" %>
+            <span class="label"><%= pluralize answer.reputation_for(:votes).to_i, "vote" %></span>
             <% if current_user && !Answer.evaluated_by(:votes, current_user).include?(answer) %>
             | <%= link_to "up", vote_question_answer_path(question, answer, type: "up"), method: "post" %>
             | <%= link_to "down", vote_question_answer_path(question,answer, type: "down"), method: "post" %>

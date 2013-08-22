@@ -2,6 +2,8 @@ class Advisor < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
+  acts_as_messageable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -22,6 +24,7 @@ class Advisor < ActiveRecord::Base
 
   has_many :questions, :through => :answers
 
+  has_many :matches
   has_many :users, :through => :matches
 
   has_reputation :answering_skill,
@@ -59,5 +62,15 @@ class Advisor < ActiveRecord::Base
 	    find(:all)
 	  end
 	end
+
+  #Returning the email address of the model if an email should be sent for this object (Message or Notification).
+  #If no mail has to be sent, return nil.
+  def mailboxer_email(advisor)
+    #Check if an email should be sent for that object
+    #if true
+    return "define_email@on_your.model"
+    #if false
+    #return nil
+  end
 
 end

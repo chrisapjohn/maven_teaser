@@ -40,6 +40,7 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
+    @user = current_user
     @match = Match.new(params[:match])
 
     respond_to do |format|

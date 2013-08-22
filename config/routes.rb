@@ -1,8 +1,5 @@
 MavenTeaser::Application.routes.draw do
 
-  resources :matches
-
-
   devise_for :advisors
 
   devise_for :users
@@ -15,9 +12,15 @@ MavenTeaser::Application.routes.draw do
     root :to => "pages#home"
   end
 
+  resources :matches
+
   resources :search_suggestions
 
   resources :emails
+
+  resources :messages
+
+  resources :conversations
 
   resources :questions do
     member { post :vote }
@@ -34,7 +37,7 @@ MavenTeaser::Application.routes.draw do
     resources :ratings
   end
 
-  root :to => "emails#home"
+  root :to => "pages#home"
 
   get "pages/rate_my_advisor"
 

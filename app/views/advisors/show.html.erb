@@ -13,11 +13,13 @@
   <% end %>
 </p>
 
-<% unless !current_user %>
+<%= render 'contact_form' %>
+
+<% unless current_advisor %>
   <p>
     <%= link_to "Rate this advisor!", new_advisor_rating_path(@advisor), class: "btn btn-small btn-success" %>
   </p>
-<% end %>
+  <% end %>
 
 <% if @advisor.ratings.blank? %>
 <p>

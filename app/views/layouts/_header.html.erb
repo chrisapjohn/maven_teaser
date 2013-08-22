@@ -28,6 +28,7 @@
           <ul class="nav pull-right">
             <% if user_signed_in? %>
               <li><%= link_to "Signed in as #{current_user.name}", current_user %></li>
+              <li><a href="messages">Inbox <span class="badge badge-success"><% unless current_user.mailbox.inbox.empty? %><%= current_user.mailbox.inbox.count %><% end %></span></a></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :id => "logout_button" %></li>
             <% elsif advisor_signed_in? %>
               <li><%= link_to "Signed in as #{current_advisor.name}", current_advisor %></li>

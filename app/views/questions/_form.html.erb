@@ -2,8 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-group">
-    <%= f.input :title %>
-    <%= f.input :details %>
+    <%= f.input :details, label: false %>
     <%= f.select :topic, collection: ["Accounting", "Bonds", "Commodities", "Estate Planning", "ETFs (Exchange Traded Funds", "Financial Planning", "Hedge Funds", "Insurance", "Legal", "Mutual Funds", "Private Equity", "Real Estate", "Retirement", "Stocks", "Socially Responsible Investing", "Venture Capital", "Other"] %>
   </div>
 

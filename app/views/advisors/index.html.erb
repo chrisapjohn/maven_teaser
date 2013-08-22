@@ -2,6 +2,7 @@
 <% @advisors.each do |advisor| %>
   <tr>
     <td>
+    		<%= image_tag advisor.avatar.url(:thumb) %>
         <%= link_to advisor.name, advisor %>
     </td>
   </tr>
