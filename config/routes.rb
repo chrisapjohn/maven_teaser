@@ -37,7 +37,7 @@ MavenTeaser::Application.routes.draw do
     resources :ratings
   end
 
-  root :to => "pages#home"
+  root :to => "emails#home"
 
   get "pages/rate_my_advisor"
 
