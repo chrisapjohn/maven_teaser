@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'devise'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+gem 'omniauth-facebook'
 gem 'simple_form'
 gem "paperclip", '= 3.4.2'
 gem "cocaine", "= 0.5"  

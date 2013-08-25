@@ -1,5 +1,7 @@
 MavenTeaser::Application.routes.draw do
 
+  devise_for :admins
+
   devise_for :advisors
 
   devise_for :users
@@ -37,11 +39,16 @@ MavenTeaser::Application.routes.draw do
     resources :ratings
   end
 
-  root :to => "emails#home"
+  root :to => "pages#home"
 
   get "pages/rate_my_advisor"
 
   get "pages/find_an_advisor"
+
+  # Omniauth
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
 
 
   # The priority is based upon order of creation:

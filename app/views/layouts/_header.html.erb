@@ -15,11 +15,9 @@
         <!-- Everything you want hidden at 940px or less, place within here -->
         <div class="nav-collapse collapse">
           <ul class="nav pull-left">
-            <% if user_signed_in? %>
               <li><%= link_to "Find An Advisor", "/pages/find_an_advisor" %></li>
               <li><%= link_to "Rate My Advisor", "/pages/rate_my_advisor" %></li>
               <li><%= link_to "Ask A Financial Question", questions_path %></li>
-            <% end %>
             <% if advisor_signed_in? %>
               <li><%= link_to "My Profile", current_advisor %></li>
               <li><%= link_to "Financial Questions", questions_path %></li>

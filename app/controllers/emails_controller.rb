@@ -5,9 +5,9 @@ class EmailsController < ApplicationController
   # POST /emails
   # POST /emails.json
 
-  respond_to :js
+  before_filter :authenticate_admin!
 
-  before_filter :authenticate_user!, only: [:index, :edit]
+  respond_to :js
 
   def create
     @email = Email.new(params[:email])

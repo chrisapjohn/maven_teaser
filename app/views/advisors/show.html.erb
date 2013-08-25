@@ -1,9 +1,7 @@
 <p>
   <h3>
     <%= @advisor.name %>
-    <% if current_advisor == @advisor %>
        | <%= link_to "Edit profile", edit_advisor_path %>
-    <% end %>
   </h3>
 </p>
 
